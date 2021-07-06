@@ -8,7 +8,11 @@ import { HomeComponent } from './components/home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { BasicListComponent } from './components/basic-list/basic-list.component';
 import { MoviesComponent } from './components/movies/movies.component';
-
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { MovieEffects } from './effects/movie.effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,10 @@ import { MoviesComponent } from './components/movies/movies.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DragDropModule
+    DragDropModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([MovieEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

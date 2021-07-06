@@ -1,10 +1,13 @@
 import { ActionReducerMap } from "@ngrx/store";
-import { * } from "./movies.reducer";
-
+import * as fromMovies from './movies.reducer';
 export interface AppState {
+  movies: fromMovies.MovieState;
 }
-movies: fromMovies.movieState;
 
 export const reducers: ActionReducerMap<AppState> = {
-    movies: fromMovies.reducer
+  movies: fromMovies.reducer
 };
+
+const selectMoviesBranch = (state: AppState) => state.movies;
+
+export const { selectAll: selectMovieArray } = fromMovies.adapter.getSelectors(selectMoviesBranch);
