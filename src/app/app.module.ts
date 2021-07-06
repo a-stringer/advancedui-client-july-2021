@@ -7,13 +7,15 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { BasicListComponent } from './components/basic-list/basic-list.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    BasicListComponent
+    BasicListComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
