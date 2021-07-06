@@ -1,3 +1,4 @@
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -23,6 +24,9 @@ export class BasicListComponent implements OnInit {
         id: 3, description: 'Learn Webpack'
       }
     ]
+  }
+  drop(event: any) {
+    moveItemInArray(this.items, event.previousIndex, event.CurrentIndex);
   }
 }
 
