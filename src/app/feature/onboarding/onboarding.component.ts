@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { forbiddenEmail } from './validators/passwords-match';
 
 @Component({
   selector: 'app-onboarding',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class OnboardingComponent implements OnInit {
 
   form: FormGroup = this.formBuilder.group({
-    email: ['', [Validators.email, Validators.required]],
+    email: ['', [Validators.email, Validators.required, forbiddenEmail('prodigy')]],
     password1: ['', [Validators.required, Validators.minLength(3)]],
     password2: ['', [Validators.required, Validators.minLength(3)]],
     birthDate: ['', []]

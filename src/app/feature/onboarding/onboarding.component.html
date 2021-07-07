@@ -12,6 +12,7 @@
          *ngIf="email?.errors && (email?.touched || email?.dirty)">
       <p *ngIf="email?.errors?.required">This is required</p>
       <p *ngIf="email?.errors?.email">This needs to be an email address</p>
+      <p *ngIf="email?.errors?.forbiddenEmail">Band Members of Prodigy not allowed</p>
     </div>
   </div>
   <fieldset>
