@@ -1,1 +1,77 @@
-<p>onboarding works!</p>
+<form [formGroup]="form"
+      (ngSubmit)="submit(focusMe)">
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input class="form-control"
+           autofocus
+           #focusMe
+           id="email"
+           formControlName="email">
+    <div class="alert alert-danger"
+         *ngIf="email?.errors && (email?.touched || email?.dirty)">
+      <p *ngIf="email?.errors?.required">This is required</p>
+      <p *ngIf="email?.errors?.email">This needs to be an email address</p>
+    </div>
+  </div>
+  <fieldset>
+    <legend>Your Password:</legend>
+    <label for="password1">Your Password:</label>
+    <input type="password"
+           id="password1"
+           class="form-control"
+           formControlName="password1">
+
+    <div class="alert alert-danger"
+         *ngIf="password1?.errors &&(password1?.touched || password1?.dirty)">
+      <p *ngIf="password1?.errors?.required">This is required</p>
+      <p *ngIf="password1?.errors?.minlength">
+        This has to be at least {{password1?.errors?.minlength?.requiredLength}} letters long.
+      </p>
+    </div>
+
+    <label for="password2">Repeat your Password:</label>
+    <input type="password"
+           id="password2"
+           class="form-control"
+           formControlName="password2">
+    <div class="alert alert-danger"
+         *ngIf="password2?.errors &&(password2?.touched || password2?.dirty)">
+      <p *ngIf="password2?.errors?.required">This is required</p>
+      <p *ngIf="password2?.errors?.minlength">
+        This has to be at least {{password2?.errors?.minlength?.requiredLength}} letters long.
+      </p>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Personal Information</legend>
+    <div class="form-group">
+      <label for="birthdate">Your Birthday</label>
+      <input class="form-control"
+             type="date"
+             id="birthdate"
+             formControlName="birthDate">
+    </div>
+  </fieldset>
+  <button type="submit"
+          class="btn btn-success">Sign Me Up</button>
+</form>
+
+<pre>
+  THE FORM:
+  {{ form?.value | json }}
+
+
+  Email:
+  {{ email?.errors | json }}
+
+  Password1:
+  {{ password1?.errors | json }}
+
+  Password2:
+  {{ password2?.errors | json }}
+
+  Birthdate:
+  {{ birthDate?.errors | json }}
+</pre>

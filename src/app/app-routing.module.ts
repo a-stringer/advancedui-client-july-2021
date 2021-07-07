@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BasicListComponent } from './components/basic-list/basic-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieRecommendationsComponent } from './components/movie-recommendations/movie-recommendations.component';
-import { MoviedDraggableComponent } from './components/movies-draggable/movies-draggable.component';
+import { MoviedDraggableComponent } from './components/movied-draggable/movied-draggable.component';
 import { MoviesComponent } from './components/movies/movies.component';
 
 const routes: Routes = [

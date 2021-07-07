@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import * as actions from "../actions/movies.actions";
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { MovieModel } from "../reducers/movies.reducer";
+import { environment } from '../../environments/environment';
+import { HttpClient } from "@angular/common/http";
 @Injectable()
 export class MovieEffects {
 
-
+  readonly apiUrl = environment.apiUrl;
   readonly fakeData: MovieModel[] =
     [
       {
@@ -30,14 +32,21 @@ export class MovieEffects {
   loadMovies$ = createEffect(() =>
     this.actions$.pipe(
       ofType(actions.loadMovies),
-      map(() => this.fakeData),
-      map((payload) => actions.loadMoviesSucceeded({ payload })
-
+      switchMap(() => this.client.get<GetMoviesResponse>(this.apiUrl + '/movies')
+        .pipe(
+          map(response => response.data),
+          map((payload) => actions.loadMoviesSucceeded({ payload })
+          ),
+        )
       )
-    )
-  );
+    ));
 
 
-  constructor(private actions$: Actions) { }
+  constructor(private actions$: Actions, private client: HttpClient) { }
 
+}
+
+
+interface GetMoviesResponse {
+  data: MovieModel[]
 }

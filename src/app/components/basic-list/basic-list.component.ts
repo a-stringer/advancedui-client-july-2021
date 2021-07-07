@@ -25,20 +25,21 @@ export class BasicListComponent implements OnInit {
       }
     ]
   }
+
   drop(event: any) {
-    moveItemInArray(this.items, event.previousIndex, event.CurrentIndex);
+    moveItemInArray(this.items, event.previousIndex, event.currentIndex);
   }
 
   moveUp(item: TodoListItem) {
     const previousIndex = this.items.indexOf(item);
     moveItemInArray(this.items, previousIndex, previousIndex - 1);
   }
+
   moveDown(item: TodoListItem) {
     const previousIndex = this.items.indexOf(item);
     moveItemInArray(this.items, previousIndex, previousIndex + 1);
   }
 }
-
 interface TodoListItem {
   id: number;
   description: string;
