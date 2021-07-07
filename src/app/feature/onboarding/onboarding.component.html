@@ -16,6 +16,10 @@
     </div>
   </div>
   <fieldset>
+    <div *ngIf="form?.errors?.Passwords"
+         class="alert alert-danger">
+      <p>The Passwords must match!</p>
+    </div>
     <legend>Your Password:</legend>
     <label for="password1">Your Password:</label>
     <input type="password"
