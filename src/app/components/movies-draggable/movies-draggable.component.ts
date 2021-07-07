@@ -7,8 +7,8 @@ import { MovieModel } from 'src/app/reducers/movies.reducer';
 
 @Component({
   selector: 'app-movied-draggable',
-  templateUrl: './movied-draggable.component.html',
-  styleUrls: ['./movied-draggable.component.css'],
+  templateUrl: './movies-draggable.component.html',
+  styleUrls: ['./movies-draggable.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MoviedDraggableComponent implements OnInit {

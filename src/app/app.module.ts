@@ -14,8 +14,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { MovieEffects } from './effects/movie.effects';
 import { MovieSorterComponent } from './components/movie-sorter/movie-sorter.component';
+import { MoviedDraggableComponent } from './components/movies-draggable/movies-draggable.component';
 import { MovieRecommendationsComponent } from './components/movie-recommendations/movie-recommendations.component';
-import { MoviesDraggableComponent } from './components/movies-draggable/movies-draggable.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,8 @@ import { MoviesDraggableComponent } from './components/movies-draggable/movies-d
     BasicListComponent,
     MoviesComponent,
     MovieSorterComponent,
-    MovieRecommendationsComponent,
-    MoviesDraggableComponent
+    MoviedDraggableComponent,
+    MovieRecommendationsComponent
   ],
   imports: [
     BrowserModule,
