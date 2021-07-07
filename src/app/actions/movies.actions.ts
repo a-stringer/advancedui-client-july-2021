@@ -10,3 +10,16 @@ export const loadMoviesSucceeded = createAction(
   '[app movies] load movies succeeded',
   props<{ payload: MovieModel[] }>()
 );
+
+
+export const movieReorderedInList = createAction(
+  '[app movies] movie reordered in list',
+  props<{
+    payload: MovieReorder
+  }>()
+);
+
+interface MovieReorder {
+  fromIndex: number;
+  toIndex: number;
+}

@@ -13,13 +13,19 @@ import { reducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { MovieEffects } from './effects/movie.effects';
+import { MovieSorterComponent } from './components/movie-sorter/movie-sorter.component';
+import { MovieRecommendationsComponent } from './components/movie-recommendations/movie-recommendations.component';
+import { MoviesDraggableComponent } from './components/movies-draggable/movies-draggable.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
     BasicListComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieSorterComponent,
+    MovieRecommendationsComponent,
+    MoviesDraggableComponent
   ],
   imports: [
     BrowserModule,

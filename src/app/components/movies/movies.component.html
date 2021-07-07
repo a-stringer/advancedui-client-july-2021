@@ -1,5 +1,5 @@
 <div>
   <div *ngFor="let movie of movies$ | async">
-    <span>{{ movie.title }}</span>
+    <span>{{ movie.title }} by {{movie.director}} in {{movie.yearReleased}}</span>
   </div>
 </div>
